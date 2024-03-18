@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { ResponsiveProps, WidthProviderProps } from "react-grid-layout";
-interface BentoItemConfig {
+export interface BentoItemConfig {
     height: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
     width: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
     content: ReactNode;
