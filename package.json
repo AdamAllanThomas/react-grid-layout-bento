@@ -1,0 +1,23 @@
+{
+  "name": "react-grid-layout-bento",
+  "version": "1.0.0",
+  "description": "Bento style react component powered by react-grid-layout",
+  "main": "dist/your-main-file.js",
+  "types": "dist/your-main-file.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "author": "Adam Thomas",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-grid-layout": "^1.3.5",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-grid-layout": "^1.4.4"
+  }
+}
