@@ -1,5 +1,10 @@
 import React, { ReactNode } from "react";
-import { Responsive, WidthProvider } from "react-grid-layout";
+import {
+  Responsive,
+  ResponsiveProps,
+  WidthProvider,
+  WidthProviderProps,
+} from "react-grid-layout";
 
 interface BentoItemConfig {
   height: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
@@ -92,24 +97,36 @@ function generateLayout(items: BentoItemConfig[], cols: number) {
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-interface Props {
+interface Props
+  extends Partial<Omit<ResponsiveProps, "layouts">>,
+    Partial<WidthProviderProps> {
   items: BentoItemConfig[];
 }
 
-export default function BentoGrid({ items }: Props) {
+export default function BentoGrid({ items, ...props }: Props) {
   const cols = { lg: 8, md: 8, sm: 4, xs: 2, xxs: 1 };
-  const layout = generateLayout(items, cols.lg);
+  const rHeight = props.rowHeight || 90;
+  const bPos = props.breakpoints || {
+    lg: 1200,
+    md: 600,
+    sm: 480,
+    xs: 120,
+    xxs: 0,
+  };
+  const columns = props.cols || cols;
+  const layout = generateLayout(items, columns.lg);
   return (
     <ResponsiveGridLayout
-      className="layout"
+      className={props.className || "layout"}
       layouts={layout}
-      compactType="horizontal"
-      autoSize={true}
-      isResizable={false}
-      rowHeight={90}
-      breakpoints={{ lg: 1200, md: 600, sm: 480, xs: 120, xxs: 0 }}
-      cols={cols}
-      isDraggable={false}
+      compactType={props.compactType || "horizontal"}
+      autoSize={props.autoSize || true}
+      isResizable={props.isResizable || false}
+      rowHeight={rHeight}
+      breakpoints={bPos}
+      cols={columns}
+      isDraggable={props.isDraggable || false}
+      {...props}
     >
       {items.map((item, i) => (
         <div key={i} style={{ width: "100%", height: "100%" }}>
