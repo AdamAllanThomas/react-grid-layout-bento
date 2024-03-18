@@ -2,8 +2,8 @@
   "name": "react-grid-layout-bento",
   "version": "0.1.0",
   "description": "Bento style react component powered by react-grid-layout",
-  "main": "dist/your-main-file.js",
-  "types": "dist/your-main-file.d.ts",
+  "main": "dist/BentoGrid.js",
+  "types": "dist/BentoGrid.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build"
