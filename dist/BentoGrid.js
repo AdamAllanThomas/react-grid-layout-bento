@@ -86,14 +86,14 @@ function generateLayout(items, cols) {
 const ResponsiveGridLayout = (0, react_grid_layout_1.WidthProvider)(react_grid_layout_1.Responsive);
 function BentoGrid(_a) {
     var { items } = _a, props = __rest(_a, ["items"]);
-    const cols = { lg: 8, md: 8, sm: 4, xs: 2, xxs: 1 };
+    const cols = { lg: 8, md: 8, sm: 4, xs: 1, xxs: 1 };
     const rHeight = props.rowHeight || 90;
     const bPos = props.breakpoints || {
         lg: 1200,
         md: 600,
-        sm: 480,
-        xs: 120,
-        xxs: 0,
+        sm: 400,
+        xs: 150,
+        xxs: 100,
     };
     const columns = props.cols || cols;
     const layout = generateLayout(items, columns.lg);
